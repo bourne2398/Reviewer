@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本語 Grammar Quest | Lessons 36-78</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">あ</span>
+        <div>
+          <h1>Grammar Quest</h1>
+          <p>日本語 Lessons 36–78</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-value" id="totalScore">0</span>
+          <span class="stat-label">Score</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="streak">0</span>
+          <span class="stat-label">Streak</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+      <button class="nav-btn active" data-view="home">🏠 Home</button>
+      <button class="nav-btn" data-view="lessons">📚 Lessons</button>
+      <button class="nav-btn" data-view="games">🎮 Games</button>
+      <button class="nav-btn" data-view="conjugations">🧩 Conjugations</button>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+      <!-- HOME VIEW -->
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <h2>Master Japanese Grammar</h2>
+          <p>Interactive games for Lessons 36–78 · Conditionals · Potential · Passive · Causative · Keigo</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showView('games')">Play Games</button>
+            <button class="btn btn-secondary" onclick="showView('conjugations')">Conjugation Puzzles</button>
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Drag & Drop</h3>
+            <p>Rearrange scrambled sentences into the correct order</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">❌</div>
+            <h3>Find the Mistake</h3>
+            <p>Spot the incorrect conjugation pattern</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>Conjugation Puzzles</h3>
+            <p>Match, fill, and build every form from the lessons</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Score & Streaks</h3>
+            <p>Track progress and build learning momentum</p>
+          </div>
+        </div>
+
+        <div class="quick-start">
+          <h3>Quick Start – Pick a Part</h3>
+          <div class="part-grid" id="partGrid"></div>
+        </div>
+      </section>
+
+      <!-- LESSONS VIEW -->
+      <section id="view-lessons" class="view">
+        <h2 class="view-title">Grammar Lessons Overview</h2>
+        <div class="lessons-container" id="lessonsContainer"></div>
+      </section>
+
+      <!-- GAMES VIEW -->
+      <section id="view-games" class="view">
+        <h2 class="view-title">Choose a Game</h2>
+        <div class="games-grid">
+          <div class="game-card" data-game="dragdrop">
+            <div class="game-icon">📦</div>
+            <h3>Drag & Drop Order</h3>
+            <p>Put the words in the correct order to form natural Japanese sentences.</p>
+            <button class="btn btn-primary btn-sm">Play</button>
+          </div>
+          <div class="game-card" data-game="incorrect">
+            <div class="game-icon">🕵️</div>
+            <h3>Find the Incorrect</h3>
+            <p>Select the pattern that does <strong>not</strong> match the grammar rule.</p>
+            <button class="btn btn-primary btn-sm">Play</button>
+          </div>
+          <div class="game-card" data-game="fillblank">
+            <div class="game-icon">✍️</div>
+            <h3>Fill the Blank</h3>
+            <p>Complete the sentence with the correct conjugated form.</p>
+            <button class="btn btn-primary btn-sm">Play</button>
+          </div>
+          <div class="game-card" data-game="match">
+            <div class="game-icon">🔗</div>
+            <h3>Match Forms</h3>
+            <p>Match base verbs with their conjugated forms from the lessons.</p>
+            <button class="btn btn-primary btn-sm">Play</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONJUGATIONS VIEW -->
+      <section id="view-conjugations" class="view">
+        <h2 class="view-title">Conjugation Puzzle Hub</h2>
+        <p class="subtitle">All key conjugations from Lessons 36–78</p>
+        <div class="conj-grid" id="conjGrid"></div>
+      </section>
+
+      <!-- GAME PLAY AREA (hidden by default) -->
+      <section id="view-play" class="view">
+        <div class="play-header">
+          <button class="btn btn-ghost" id="backBtn">← Back</button>
+          <h2 id="gameTitle">Game</h2>
+          <div class="play-score">
+            Score: <span id="gameScore">0</span>
+          </div>
+        </div>
+        <div id="gameArea" class="game-area"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="play-controls">
+          <button class="btn btn-secondary" id="nextBtn" style="display:none;">Next →</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Based on Complete Japanese Grammar Reviewer · Lessons 36–78</p>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
